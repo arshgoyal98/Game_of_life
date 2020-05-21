@@ -15,9 +15,6 @@ class cell:
 
     def update(self):
         self.rect.topleft = (self.grid_x*20, self.grid_y*20)
-        for cell in self.neighbours:
-            if cell.alive:
-                self.alive_neighbours+=1
 
 
 

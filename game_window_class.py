@@ -12,6 +12,9 @@ class Game_window:
         self.rows=30
         self.cols=30
         self.grid= [[cell( self.image,x,y) for x in range(self.cols)] for y in range(self.rows)]
+        for row in self.grid:
+            for cel in row:
+                cel.get_neighbours(self.grid)
 
     def update(self):
         self.rect.topleft = self.pos

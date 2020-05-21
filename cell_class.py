@@ -12,13 +12,18 @@ class cell:
         self.rect= self.image.get_rect()
         self.neighbours =[]
 
+
     def update(self):
         self.rect.topleft = (self.grid_x*20, self.grid_y*20)
+        for cell in self.neighbours:
+            if cell.alive:
+                self.alive_neighbours+=1
+
 
 
     def draw(self):
         if self.alive:
-            self.image.fill((0,0,0))
+            self.image.fill((0, 0, 0))
         else:
             self.image.fill((0,0,0))
             pygame.draw.rect(self.image,(255,255,255) , (1 , 1 , 16,16))
@@ -36,9 +41,9 @@ class cell:
             if neighbour[1] < 0:
                 neighbour[1] +=30
             if neighbour[1] > 29:
-                neighbour[1]-=30
-            if neighbour[0] > 30:
-                neighbour[0] -=30
+                neighbour[1] -= 30
+            if neighbour[0] > 29:
+                neighbour[0] -= 30
 
         for neighbour in neighbour_list:
             try:

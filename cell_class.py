@@ -1,6 +1,6 @@
 import pygame, random
 
-class cell:
+class Cell:
 
     def __init__(self, surface, grid_x, grid_y):
 
@@ -11,10 +11,12 @@ class cell:
         self.image= pygame.Surface((20,20))
         self.rect= self.image.get_rect()
         self.neighbours =[]
+        self.alive_neighbours=0
 
 
     def update(self):
         self.rect.topleft = (self.grid_x*20, self.grid_y*20)
+
 
 
 
@@ -47,5 +49,13 @@ class cell:
                 self.neighbours.append(grid[neighbour[1]][neighbour[0]])
             except:
                 print(neighbour)
+
+    def live_neighbours(self):
+        count=0
+        for neighbour in self.neighbours:
+            if neighbour.alive:
+                count+=1
+
+        self.alive_neighbours=count
 
 

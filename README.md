@@ -7,3 +7,5 @@ These rules, which compare the behavior of the automaton to real life, can be co
   Similarly, all other dead cells stay dead.
 
 This Project is made using the python library -Pygame.
+
+The future scope of this project makes it a bit complex.
